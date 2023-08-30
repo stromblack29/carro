@@ -1,3 +1,4 @@
+using carro_test_api.Context;
 using Microsoft.AspNetCore.Mvc;
 
 namespace carro_test_api.Controllers
