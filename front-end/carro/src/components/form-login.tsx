@@ -9,12 +9,14 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import React, { FormEvent, useEffect } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 interface AppProps {
 
 }
 
 export default function FormLogin (props: AppProps) {
+    const router = useRouter();
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const d = new FormData(event.currentTarget);
@@ -25,10 +27,13 @@ export default function FormLogin (props: AppProps) {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         axios
         .post('https://localhost:7073/api/User/login', obj)
-        .then((response) => console.log(response.data))
+        .then((response) => alert('hello ' + response.data.fullName))
         .catch((error) => console.log(error.message))
         .finally(() => console.log('finish'));
     };
+    const gotoRegister = () => {
+        router.push("/register")
+    }
     return (
         <React.Fragment>
             <Container component="main" maxWidth="xs">
@@ -78,14 +83,11 @@ export default function FormLogin (props: AppProps) {
                     </Button>
                     <Grid container>
                         <Grid item xs>
-                        <Link href="#" variant="body2">
-                            Forgot password?
-                        </Link>
                         </Grid>
                         <Grid item>
-                        <Link href="#" variant="body2">
+                        <Button href="#" onClick={gotoRegister}>
                             {"Don't have an account? Sign Up"}
-                        </Link>
+                        </Button>
                         </Grid>
                     </Grid>
                     </Box>
