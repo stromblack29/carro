@@ -41,3 +41,7 @@ C:\Users\SynergySoftware1\source\repos\carro\back-end\carro-test-api\carro-test-
 C:\Users\SynergySoftware1\source\repos\carro\back-end\carro-test-api\carro-test-api\obj\Debug\net6.0\carro-test-api.pdb
 C:\Users\SynergySoftware1\source\repos\carro\back-end\carro-test-api\carro-test-api\obj\Debug\net6.0\carro-test-api.genruntimeconfig.cache
 C:\Users\SynergySoftware1\source\repos\carro\back-end\carro-test-api\carro-test-api\obj\Debug\net6.0\ref\carro-test-api.dll
+C:\Users\SynergySoftware1\source\repos\carro\back-end\carro-test-api\carro-test-api\bin\Debug\net6.0\MailKit.dll
+C:\Users\SynergySoftware1\source\repos\carro\back-end\carro-test-api\carro-test-api\bin\Debug\net6.0\MimeKit.dll
+C:\Users\SynergySoftware1\source\repos\carro\back-end\carro-test-api\carro-test-api\bin\Debug\net6.0\NETCore.MailKit.dll
+C:\Users\SynergySoftware1\source\repos\carro\back-end\carro-test-api\carro-test-api\bin\Debug\net6.0\BouncyCastle.Crypto.dll

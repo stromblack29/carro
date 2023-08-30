@@ -1,4 +1,5 @@
 ﻿using carro_test_api.Dtos;
+using carro_test_api.Email;
 using carro_test_api.Extensions;
 using carro_test_api.Interfaces;
 using carro_test_api.Models;
@@ -13,10 +14,12 @@ namespace carro_test_api.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly ILogger<UserController> _logger;
-        public UserController(ILogger<UserController> logger, IUserRepository userRepository) 
+        private readonly IEmailSender _emailSender;
+        public UserController(ILogger<UserController> logger, IUserRepository userRepository, IEmailSender emailSender) 
         {
             _logger= logger;
             _userRepository= userRepository;
+            _emailSender =  emailSender;
         }
 
         [HttpGet]
@@ -42,6 +45,15 @@ namespace carro_test_api.Controllers
                 User row = new User() { Id = new Guid(), FullName = reqUser.Name, Gender = reqUser.Gender, Telephone = reqUser.Telephone, Email = reqUser.Email, DateOfBirth = reqUser.DateOfBirth, UserName = reqUser.UserName, UserPassword = reqUser.UserPassword } ;
                 _userRepository.Insert(row);
                 _userRepository.Save();
+                try
+                {
+                    var message = new Message(new string[] { reqUser.Email }, "Test email", "This is the content from our email.");
+                    _emailSender.SendEmail(message);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, ex.ToString());
+                }
                 return Ok(row);
             }
             catch (Exception ex)
