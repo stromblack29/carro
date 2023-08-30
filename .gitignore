@@ -2,7 +2,4 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/back-end/carro-test-api/.vs/carro-test-api/FileContentIndex/456fbad8-35e9-4606-95ad-cc7f2dae6b1d.vsidx
-/back-end/carro-test-api/.vs/carro-test-api/FileContentIndex/456fbad8-35e9-4606-95ad-cc7f2dae6b1d.vsidx
-/back-end/carro-test-api/.vs/carro-test-api/FileContentIndex/456fbad8-35e9-4606-95ad-cc7f2dae6b1d.vsidx
-/back-end/carro-test-api/.vs/carro-test-api/FileContentIndex/5ec46b65-a89a-415f-881d-b526033a0b00.vsidx
+/back-end/carro-test-api/.vs/*
