@@ -4,8 +4,17 @@ using carro_test_api.Email;
 using carro_test_api.Interfaces;
 using carro_test_api.Repository;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:3000");
+                          policy.AllowAnyHeader().AllowAnyMethod();
+                      });
+});
 // Add services to the container.
 var emailConfig = builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
 builder.Services.AddSingleton(emailConfig);
@@ -24,6 +33,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseHttpsRedirection();
 
